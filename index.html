@@ -1,35 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-  
+  <meta charset="utf-8">
+  <title>Stock Symbol Prices</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
 </head>
+
 <body>
-    <h1 class=header>Stock Search</h1>
-    <form> 
-        <input type="text" id="stocksymbol" name="StockSymbol">
-        <button type="button" id="createbtn">Create Button</button>
-    </form>   
-    
-    <div id="makebutton">
+
+  <div class="container">
+    <h1>Stock Search</h1>
+
+    <!-- stocks will get dumped here -->
+    <div id="stocks-view"></div>
+
+    <form id="stock-form">
+      <label for="stock-input">Type Stock Symbol</label>
+      <input type="text" id="stock-input">
+      <br>
+
+      <!-- Button triggers new stock to be added -->
+      <input id="add-stock" type="submit" value="Add a Stock Symbol">
+    </form>
+
+    <div class="content">
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="main.js"></script>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>
