@@ -52,11 +52,11 @@ console.log(response);
 $(".content").empty();
 
 $(".content").append(`<h1>${response.quote.companyName}</h1>`);
- $(".content").append(`<p>${response.quote.latestPrice}</p>`);
+ $(".content").append(`<p>Stock Price: $${response.quote.latestPrice}</p>`);
 $(".content").append (response.news);
 for (i = 0; i < response.news.length; i++) { 
     let news = response.news[i]; 
-$(".content").append(`<p>${response.news[i].headline}</p>`)
+$(".content").append(`<p>Major Key Alert:</br>${response.news[i].headline}</p>`)
     
 }
  })
@@ -69,15 +69,22 @@ function verify() {
     $.ajax ({
 
     url: `https://api.iextrading.com/1.0//ref-data/symbols`,
-    method:"GET"
+   method:"GET"
 
-    }).then(function(response){ 
+   }).then(function(response){ 
 
-    }
+    for(let i=0; i<response.length; i++) {
+
+    validationList.push(response[i].symbol)
+
+        }
+        console.log(validationList);
+    })}
+
 
 // Calling the renderButtons function to display the initial list of stocks
 render();
-
+verify();
 
 //3. When the user clicks on a button, the page should grab the company name, logo, price, and up to 
 //10 news articles related to the stock from the iexTrading API and place them on the page.
